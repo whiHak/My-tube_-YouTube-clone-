@@ -22,7 +22,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Search..."
-        style={{ border: "none", outline: "none", borderRadius: "20px", width:"100%" }}
+        style={{ border: "none", outline: "none", borderRadius: "20px", width:"100%" }}   
         onChange={()=>{}}
       />
       <IconButton>
