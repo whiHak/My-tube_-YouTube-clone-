@@ -1,9 +1,20 @@
 import { Box, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { fetchAPI } from "../utils/fetchAPI";
 import { Sidebar, Videos } from "./component";
 
 const Feed = () => {
-  const [selectedCategory, setCat] = useState("New ");
+  const [selectedCategory, setCat] = useState("New");
+  const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    fetchAPI(`search?part=snippet&q=${selectedCategory}`)
+      .then((data) => setVideos(data.items))
+
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [selectedCategory]);
+
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box
@@ -22,12 +33,12 @@ const Feed = () => {
           copyright &copy; 2023 myTube
         </Typography>
       </Box>
-      <Box sx={{ p: 2, overflowY: "auto", height: "90vh" }}>
+      <Box sx={{ p: 2, overflowY: "auto", height: "90vh", flex: 2 }}>
         <Typography variant="h4" sx={{ mb: 2, color: "white" }}>
-          {selectedCategory} 
-           <span style={{ color: "#00A9EC", fontWeight: "bold" }}>Videos</span>
+          {selectedCategory}
+          <span style={{ color: "#00A9EC", fontWeight: "bold" }}>Videos</span>
         </Typography>
-        <Videos />
+        <Videos videos={videos} />
       </Box>
     </Stack>
   );
