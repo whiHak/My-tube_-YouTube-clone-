@@ -2,15 +2,15 @@ import { Box, Stack } from "@mui/material";
 import React, { useEffect } from "react";
 import { VideoCard, ChannelCard } from "./component";
 
-const Videos = ({ videos }) => {
+const Videos = ({ videos, direction }) => {
   return (
     <Stack
-      direction="row"
+      direction= { direction || "row"} 
       alignItems="center"
       flexDirection="start"
       flexWrap="wrap"
-      gap={5}
-      sx={{  display:"flex", justifyContent:"center", alignItems:"center",margin:{sx:0, md:5 } }}
+      gap={3}
+      sx={{  display:"flex", justifyContent:"center", alignItems:"center",margin:{sx:0, md:2 } }}
     >
       {console.log(videos)}
       {videos?.map((items, indx) => (
