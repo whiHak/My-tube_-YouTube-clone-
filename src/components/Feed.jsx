@@ -33,7 +33,7 @@ const Feed = () => {
           copyright &copy; 2023 myTube
         </Typography>
       </Box>
-      <Box sx={{ p: 2, overflowY: "auto", height: "90vh", flex: 2 }}>
+      <Box sx={{ p: 2, overflowY: "auto", minHeight: "90vh", flex: 2 }}>
         <Typography variant="h4" sx={{ mb: 2, color: "white" }}>
           {selectedCategory}
           <span style={{ color: "#00A9EC", fontWeight: "bold" }}>Videos</span>
