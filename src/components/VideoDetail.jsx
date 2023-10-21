@@ -1,27 +1,34 @@
 import { Box, Stack, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { fetchAPI } from "../utils/fetchAPI";
 import ReactPlayer from "react-player";
 import Videos from "./Videos";
+import { VideoContext } from "../context/VideoContext";
+import { CheckCircle } from "@mui/icons-material";
 
 const VideoDetail = () => {
-  const [videoDetails, setVideoDetails] = useState();
+  // const [videoDetails, setVideoDetails] = useState([]);
   const [relatedVideos, setRelatedVideos] = useState([]);
   const { id } = useParams();
 
+  const videoDetails = useContext(VideoContext);
+
   useEffect(() => {
-    fetchAPI(`videos?part=snippet,statistics&id=${id}`).then(
-      (data) => setVideoDetails(data.items[0])
-      );
-    fetchAPI(`search?part=id%2Csnippet&type=video&relatedToVideoId=${id}`).then(
-      (data) => {
-        // setRelatedVideos(data?.items);
-        // console.log(data)
-      }
-      );
-    }, [id]);
-    console.log(videoDetails)
+    try {
+      fetchAPI(
+        `search?relatedToVideoId=${id}&part=id%2Csnippet&type=video`
+      ).then((data) => {
+        setRelatedVideos(data?.items);
+      });
+    } catch (error) {
+      //Handle Error
+    }
+  }, [id]);
+  const {
+    data: { snippet },
+  } = videoDetails;
+  console.log(snippet);
   return (
     <Box minHeight="95vh" width="100vw">
       <Stack
@@ -35,13 +42,40 @@ const VideoDetail = () => {
               className="react-player"
               controls
             />
-            <Typography variant={{xs:"subtitle1", md:"h5"}} p={2} color="#fff">
-              {videoDetails?.snippet?.title}
-            </Typography>
+            <Box m={5}>
+              <Typography
+                varient="h5"
+                color="white"
+                sx={{
+                  p: "10",
+                  fontSize: "18px",
+                  mb: "10px",
+                  fontWeight: "bold",
+                }}
+              >
+                {snippet?.title.slice(0, 70)}
+              </Typography>
+              <Link to={id && `/channel/${snippet?.channelId}`}>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    p: "10",
+                    color: "#AFAFAF",
+                    fontSize: "14px",
+                    alignItems: "center",
+                  }}
+                >
+                  {snippet?.channelTitle}
+                  <CheckCircle
+                    sx={{ fontSize: "13px", ml: "5px", alignSelf: "center" }}
+                  />
+                </Typography>
+              </Link>
+            </Box>
           </Box>
         </Box>
         {/* {console.log(relatedVideos)} */}
-        {/* <Videos videos={relatedVideos} direction="column" /> */}
+        <Videos videos={relatedVideos} direction="column" />
       </Stack>
     </Box>
   );
