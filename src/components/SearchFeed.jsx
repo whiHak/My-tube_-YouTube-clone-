@@ -10,19 +10,28 @@ const SearchFeed = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fetchAPI(`search?part=snippet&q=${searchTerm}`)
-      .then((data) => {
+    try {
+      fetchAPI(`search?part=snippet&q=${searchTerm}`).then((data) => {
         setVideos(data.items);
-      })
-      .catch((err) => {
-        //Handle error
       });
+    } catch (error) {
+      //Handle Error
+    }
   }, []);
   return (
-    <Stack sx={{ flexDirection:"column", alignItems:"center"}}>
-      <Typography variant="h4" sx={{ mb: 2, color: "white", height:"max-content"}}>
+    <Stack sx={{ flexDirection: "column", alignItems: "center" }}>
+      <Typography
+        variant="h4"
+        sx={{ mb: 2, color: "white", height: "max-content" }}
+      >
         Search results for{" "}
-        <span style={{ color: "#00A9EC", fontWeight: "bold" ,height:"max-content"}}>
+        <span
+          style={{
+            color: "#00A9EC",
+            fontWeight: "bold",
+            height: "max-content",
+          }}
+        >
           "{searchTerm}"
         </span>
       </Typography>

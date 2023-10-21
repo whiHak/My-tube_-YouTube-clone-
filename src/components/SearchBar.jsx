@@ -37,6 +37,7 @@ const SearchBar = () => {
         onChange={(e) => {
           setQuery(e.target.value);
         }}
+        value={query}
         onKeyDown={handleKeyDown}
       />
       <Link to={`/search/${query}`}>
