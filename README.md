@@ -63,7 +63,7 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ### Credits
 
-This Chat-web-app was developed by [Betselot Abraham](https://www.linkedin.com/in/betselot-abraham-184753285), based on the RapidAPI and leveraging ReactJs with MaterialUI.
+This YouTube-Clone-app was developed by [Betselot Abraham](https://www.linkedin.com/in/betselot-abraham-184753285), based on the RapidAPI and leveraging ReactJs with MaterialUI.
 
 ## License
 
