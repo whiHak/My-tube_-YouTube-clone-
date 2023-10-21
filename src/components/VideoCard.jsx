@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {
-  Box,
   Card,
   CardContent,
   CardMedia,
@@ -9,8 +8,16 @@ import {
   Typography,
 } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
+import { VideoContext } from "../context/VideoContext";
 
 const VideoCard = ({ video, id }) => {
+  const {dispatch} = useContext(VideoContext);
+
+  const setVideo = (e) => {
+
+    dispatch({type:"VideoSelected", payload:video})
+  }
+
   return (
     <Card
       sx={{
@@ -21,7 +28,7 @@ const VideoCard = ({ video, id }) => {
       }}
     >
       <CardActionArea>
-        <Link to={id && `/video/${id.videoId}`}>
+        <Link to={id && `/video/${id.videoId}`} onClick={setVideo}>
           <CardMedia
             component="img"
             image={video?.thumbnails?.medium?.url}
@@ -30,7 +37,7 @@ const VideoCard = ({ video, id }) => {
           />
         </Link>
         <CardContent sx={{ backgroundColor: "#1e1e1e", height: "100px" }}>
-          <Link to={id && `/video/${id.videoId}`}>
+          <Link to={id && `/video/${id.videoId}`} onClick={setVideo}>
             <Typography
               varient="subtitle1"
               color="white"
