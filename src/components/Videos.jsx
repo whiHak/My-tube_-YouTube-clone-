@@ -12,7 +12,6 @@ const Videos = ({ videos, direction }) => {
       gap={3}
       sx={{  display:"flex", justifyContent:"center", alignItems:"center",margin:{sx:0, md:2 } }}
     >
-      {console.log(videos)}
       {videos?.map((items, indx) => (
         <Box key={indx}>
           {/* {console.log(items.snippet.thumbnails.medium.url)} */}
