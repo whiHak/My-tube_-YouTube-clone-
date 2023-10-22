@@ -30,7 +30,7 @@ A YouTube clone built with React and RapidAPI, allowing users to search for vide
 2. Navigate to the project directory:
 
    ```
-   cd My-tube-youtube-clone
+   cd My-tube_-YouTube-clone-
    ```
 
 3. Install the dependencies:
