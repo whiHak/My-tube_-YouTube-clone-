@@ -64,7 +64,7 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## Acknowledgments
 
 - This project was inspired by [RapidAPI](https://rapidapi.com/hub).
-- Special thanks to the React and Firebase communities for their valuable resources.
+- Special thanks to the React and RapidAPI communities for their valuable resources.
 
 
 ### Credits
