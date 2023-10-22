@@ -61,6 +61,12 @@ A YouTube clone built with React and RapidAPI, allowing users to search for vide
 
 Contributions are welcome! If you find any issues or have suggestions for improvement, feel free to open a pull request.
 
+## Acknowledgments
+
+- This project was inspired by [RapidAPI](https://rapidapi.com/hub).
+- Special thanks to the React and Firebase communities for their valuable resources.
+
+
 ### Credits
 
 This YouTube-Clone-app was developed by [Betselot Abraham](https://www.linkedin.com/in/betselot-abraham-184753285), based on the RapidAPI and leveraging ReactJs with MaterialUI.
