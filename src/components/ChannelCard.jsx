@@ -56,7 +56,7 @@ const ChannelCard = ({ channel, id, subscriber, marginTop,alignSelf }) => {
             />
           </Typography>
           <Typography sx={{color:"#AFAFAF", fontSize:"12px"}}>
-          {parseInt(subscriber).toLocaleString()} Subscribers
+          {subscriber && parseInt(subscriber).toLocaleString()} Subscribers
           </Typography>
         </CardContent>
       </Link>

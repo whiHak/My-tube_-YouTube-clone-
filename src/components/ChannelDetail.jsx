@@ -42,7 +42,6 @@ const ChannelDetail = () => {
             zIndex: "50",
           }}
         />
-        {console.log(channelDetail?.statistics?.subscriberCount)}
         <ChannelCard
           channel={channelDetail?.snippet}
           id={channelDetail?.id}
