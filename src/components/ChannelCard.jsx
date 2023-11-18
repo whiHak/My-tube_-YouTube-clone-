@@ -21,7 +21,7 @@ const ChannelCard = ({ channel, id, subscriber, marginTop,alignSelf }) => {
         zIndex: "100",
       }}
     >
-      <Link to={`/channel/${id}`}>
+      <Link to={`/channel/${id?.channelId}`}>
         <CardContent
           sx={{
             alignItems: "center",
