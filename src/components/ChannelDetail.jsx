@@ -11,10 +11,10 @@ const ChannelDetail = () => {
   useEffect(() => {
     try {
       fetchAPI(`channels?part=snippet%2Cstatistics&id=${id}`).then((data) => {
-        setChannelDetail(data.items[0]);
+        setChannelDetail(data?.items[0]);
       });
       fetchAPI(`search?part=snippet%2Cid&channelId=${id}`).then((data) => {
-        setChannelVideos(data.items);
+        setChannelVideos(data?.items);
       });
     } catch (error) {
       //Handle Error
